@@ -1,9 +1,4 @@
 
-/*
-TO DO
-- 
-*/
-
 // Navigation
 let nav = document.querySelector("nav");
 let ul = document.createElement("ul");
@@ -394,7 +389,7 @@ Figure out best colors and designs for cards
 Fix card colors so types don't blur
 Fix size of cards when 1 to 2 cards. They are huge!
 */
-© 2019 GitHub, Inc.
+
 
 
 
