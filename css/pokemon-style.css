@@ -1,3 +1,295 @@
+
+html {
+    font-family: 'Bangers', cursive;  
+    color: white;
+    background-color: #232323;
+  }
+  
+  :root {
+    --red: #f00;
+    --redDark: #c00;
+    --blue: #3b4cca;
+    --yellow: #ffde00;
+    --gold: #b3a125;
+    --card: #494949;
+  }
+  
+  h3 {
+    margin: 0;
+    letter-spacing: 2px;
+    font-family: 'Barlow', sans-serif;
+  }
+  
+  h2, h1, li {
+    margin-top: 50px;
+    letter-spacing: 4px;
+  }
+  
+  p, li {
+    font-family: 'Barlow', sans-serif;
+  }
+  
+  /* NAVIGATION */
+  .navbar {
+    display: block;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    background-color: var(--blue);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 5px 0 rgb(113, 124, 13);
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    width: 100%;
+  
+  }
+  
+  .navbar ul :hover {
+    background-color: var(--redDark);
+    cursor: pointer;
+  }
+  
+  .navbar ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    font-size: 1rem;
+    height: 40px;
+    width: 10%;
+    margin-top: 0;
+  }
+  
+  /* HEADER */
+  header {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  /* COLOR CIRCLES */
+  #types  {
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  #types ul {
+    padding: 0 10px;
+  }
+  
+  #types ul li:hover {
+    cursor: pointer;
+    color: #494949;
+  }
+  
+  #types ul li:active {
+    transform: scale(1.2); outline: none;
+  }
+  
+  #types ul li {
+    margin-top: 0;
+  }
+  
+  #types ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+  
+  #types ul li {
+    list-style-type: none;
+  }
+  
+  .request {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+    padding-top: 30px;
+  }
+  
+  #search {
+    background-color: rgba(66, 97, 235, 0.664);
+    border: none;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* MAIN / CARDS */
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 3rem;
+    row-gap: 7rem;
+    margin: 150px auto;
+    margin-bottom: 6rem;
+    max-width: 70%;
+  }
+    
+  .scene {
+    width: 100%;
+    height: 350px;
+    margin: 40px 0;
+    perspective: 600px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  hr {
+    width: 80%;
+    border: 3px solid #232323;
+    border-radius: 5px;
+  }
+  
+  
+  .card img {
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -80%);
+  }
+  
+  .card.is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 30px;
+    backface-visibility: hidden;
+    border-radius: 5px;  
+    background-color: var(--card);
+  }
+  
+  .card__face--front {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card__face--front {
+    font-size: 20px;
+  }
+  
+  .card__face--back {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    transform: rotateY(180deg);
+  }
+  
+  .picDivs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  .btn {
+    background-color: var(--card);
+    background-image: url("../assets/images/add.png");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 100px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.25rem;  
+    color: white;
+    letter-spacing: 2px;
+  }
+  
+  .btn:hover { transform: scale(1.02); outline: none; }
+  .btn:active { transform: scale(1); outline: none; }
+  
+  /* TOAST */
+  .toast {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #snackbar {
+    visibility: hidden; 
+    min-width: 250px; 
+    background-color: rgb(168, 168, 168); 
+    color: #fff; 
+    text-align: center;
+    border-radius: 4px 4px 0 0; 
+    padding: 16px;
+    position: fixed; 
+    z-index: 1; 
+    display: flex;
+    justify-content: center;
+    bottom: 30px;
+  }
+  
+  #snackbar.show {
+    visibility: visible; 
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+
+
+
+/*
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -38,7 +330,7 @@ img {
   
   @media screen and (min-width: 500px) {
   
-    /* no grid support? */
+
     .sidebar {
       float: left;
       width: 19.1489%;
@@ -64,12 +356,12 @@ img {
     
     .header, .footer {
       grid-column: 1 / -1;
-      /* needed for the floated layout */
+     
       clear: both;
     }
   
   }
-  
+  /*
   .wrapper > * {
     background-color: #000;
     color: #fff;
@@ -81,7 +373,7 @@ img {
   }
   
   /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
-  @supports (display: grid) {
+  /*@supports (display: grid) {
     .wrapper > * {
       width: auto;
       margin: 0;
@@ -97,7 +389,7 @@ img {
   }
 
   /* Card flip action */
-
+/*
   body { font-family: sans-serif; }
 
 .scene {
@@ -151,4 +443,4 @@ button {
   font-size: 1.5rem;
   border-radius: 10px;
   margin: 100px;
-}
+} 
