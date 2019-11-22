@@ -43,7 +43,6 @@ function populateDOM(single_pokemon) {
   let weight = document.createElement("p")
   let pokeId = document.createElement("p")
   let forms = document.createElement("p")
-  let hr = document.createElement("hr")
   let tipes = document.createElement("div")
 
   pokeScene.setAttribute("class", "scene")
@@ -81,4 +80,6 @@ pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/
 pokeDiv.addEventListener("click", function() {
   pokeDiv.classList.toggle("is-flipped");
 })
+
 }
+
