@@ -1,4 +1,3 @@
-
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -11,7 +10,7 @@ main {
 }
 
 img {
-    max-width: 100px;
+    max-width: 150px;
 
 }
 
@@ -38,28 +37,38 @@ img {
   }
 
   header {
-    height: 300px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0;
+    margin-bottom: 100px;
     text-align: center;
+  }
+  header img {
+    max-width: 300px;
+    margin-bottom: 50px;
   }
 
   .buttoncenter {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 100px;
-    padding-top: 30px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  backface-visibility: hidden;
   }
 
   #search {
-    background-color: ;
-    border: none;
+    background: #ffcb05;
+    height: 260px;
+    width: 200px;
+    border-radius: 50px;
     color: white;
-    padding: 20px;
-    border-radius: 10px;
+    border: 0;
+    margin: 0;
+    
   }
 
   
@@ -80,7 +89,7 @@ img {
     }
 
     .content img {
-      height: 200px;
+      height: 300px;
       padding: 20px;
     
     }
@@ -133,7 +142,6 @@ img {
 .scene {
   width: 200px;
   height: 260px;
-  border: 1px solid #CCC;
   margin: 40px 0;
   perspective: 600px;
 }
@@ -155,12 +163,13 @@ img {
   position: absolute;
   width: 100%;
   height: 100%;
-  line-height: 100px;
+  line-height: 0px;
   color: black;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   backface-visibility: hidden;
+  border: 6px solid #fff;
 }
 
 .card__face--front {
@@ -184,4 +193,5 @@ button {
   font-size: 1.5rem;
   border-radius: 10px;
   margin: 100px;
+
 }
