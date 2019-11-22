@@ -43,10 +43,10 @@ function populateDOM(single_pokemon) {
   let weight = document.createElement("p")
   let pokeId = document.createElement("p")
   let forms = document.createElement("p")
-  let tipes = document.createElement("div")
+  let types = document.createElement("div")
 
   pokeScene.setAttribute("class", "scene")
-  tipes.setAttribute("class", "pre")
+  types.setAttribute("class", "pre")
   pokeDiv.setAttribute("class", "card")
   pokeFront.setAttribute("class", "card__face card__face--front")
   pokeBack.setAttribute("class", "card__face card__face--back")
@@ -64,12 +64,12 @@ pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/
   pokeFront.appendChild(name)
   pokeFront.appendChild(forms)
   pokeFront.appendChild(pokeId)
-  pokeFront.appendChild(hr)
+  
 
   pokeBack.appendChild(powers)
   pokeBack.appendChild(height)
   pokeBack.appendChild(weight)
-  pokeBack.appendChild(tipes)
+  pokeBack.appendChild(types)
 
   pokeDiv.appendChild(pokeFront)
   pokeDiv.appendChild(pokeBack)
