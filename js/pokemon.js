@@ -1,5 +1,25 @@
-// reusable asyne function to fetch data from url api
-async function getAPIData(url) {
+
+
+// prompt window to input pokemon ID & create new card
+
+document.querySelector("#search").addEventListener("click", () => {
+    let pokeId = prompt("Provide the Pokemon ID of the Pokemon you want to add:")
+    let pokeIdNum = parseInt(pokeId, 10)
+    if (pokeIdNum > 807) {
+      alert("That Pokemon ID does not exist! There are only 808 pokemon.")
+      return
+    } else {
+      getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+        .then(result => {
+          populateDOM(result)
+        })
+        .catch(error => console.log(error))
+    }
+  })
+  
+  
+  // reusable asyne function to fetch data from url api
+  async function getAPIData(url) {
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -18,9 +38,9 @@ async function getAPIData(url) {
           });      
       }
   });
-
-
-//get the correct pic for each card
+  
+  
+  //get the correct pic for each card
   function getPokeNumber(id) {
     if (id < 10) return `00${id}`
     if (id > 9 && id < 100) {
@@ -29,9 +49,9 @@ async function getAPIData(url) {
   }
   
   let mainArea = document.querySelector("main")
-
-//Function to append card elements into main area
-function populateDOM(single_pokemon) {
+  
+  //Function to append card elements into main area
+  function populateDOM(single_pokemon) {
   let pokeScene = document.createElement("div")
   let pokeDiv = document.createElement("div")
   let pokeFront = document.createElement("div")
@@ -43,43 +63,45 @@ function populateDOM(single_pokemon) {
   let weight = document.createElement("p")
   let pokeId = document.createElement("p")
   let forms = document.createElement("p")
-  let types = document.createElement("div")
-
+  let tipes = document.createElement("div")
+  
   pokeScene.setAttribute("class", "scene")
-  types.setAttribute("class", "pre")
+  tipes.setAttribute("class", "pre")
   pokeDiv.setAttribute("class", "card")
   pokeFront.setAttribute("class", "card__face card__face--front")
   pokeBack.setAttribute("class", "card__face card__face--back")
   pic.setAttribute("class", "picDivs")
-
+  
   let pokeNum = getPokeNumber(single_pokemon.id)
-
-
-
-pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
-
-// make the data show up
-
+  
+  
+  
+  pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
+  
+  // make the data show up
+  
   pokeFront.appendChild(pic)
   pokeFront.appendChild(name)
   pokeFront.appendChild(forms)
   pokeFront.appendChild(pokeId)
   
-
+  
   pokeBack.appendChild(powers)
   pokeBack.appendChild(height)
   pokeBack.appendChild(weight)
-  pokeBack.appendChild(types)
-
+  pokeBack.appendChild(tipes)
+  
   pokeDiv.appendChild(pokeFront)
   pokeDiv.appendChild(pokeBack)
   pokeScene.appendChild(pokeDiv)
-
+  
   mainArea.appendChild(pokeScene)
-
-pokeDiv.addEventListener("click", function() {
+  
+  pokeDiv.addEventListener("mouseover", function() {
   pokeDiv.classList.toggle("is-flipped");
-})
-
-}
-
+  })
+  pokeDiv.addEventListener("mouseout", function() {
+    pokeDiv.classList.toggle("is-flipped");
+    })
+  }
+  
