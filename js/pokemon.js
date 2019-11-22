@@ -1,3 +1,14 @@
+/*
+// page header and nav
+const pageHeader = document.querySelector("#header")
+pageHeader.textContent = pageData.header
+const navBar = documentSelector("#navbar")
+navBar.textContent = pageData.navbar
+*/
+
+// constructor
+
+
 
 
 // prompt window to input pokemon ID & create new card
@@ -30,11 +41,10 @@ document.querySelector("#search").addEventListener("click", () => {
   }
   
   // now, use the returned async data    
-  const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/').then(data => {
+  const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25').then(data => {
       for (const pokemon of data.results) {
           getAPIData(pokemon.url).then(pokedata => {
-            populateDOM(pokedata);
-          //   populateDOM(Thoremon)
+            populateDOM(pokedata)
           });      
       }
   });
@@ -56,17 +66,13 @@ document.querySelector("#search").addEventListener("click", () => {
   let pokeDiv = document.createElement("div")
   let pokeFront = document.createElement("div")
   let pokeBack = document.createElement("div")
-  let name = document.createElement("h2")
+  let name = document.createElement("h4")
   let pic = document.createElement("img")
   let powers = document.createElement("p")
-  let height = document.createElement("p")
-  let weight = document.createElement("p")
   let pokeId = document.createElement("p")
-  let forms = document.createElement("p")
-  let tipes = document.createElement("div")
+ 
   
   pokeScene.setAttribute("class", "scene")
-  tipes.setAttribute("class", "pre")
   pokeDiv.setAttribute("class", "card")
   pokeFront.setAttribute("class", "card__face card__face--front")
   pokeBack.setAttribute("class", "card__face card__face--back")
@@ -82,20 +88,16 @@ document.querySelector("#search").addEventListener("click", () => {
   
   pokeFront.appendChild(pic)
   pokeFront.appendChild(name)
-  pokeFront.appendChild(forms)
   pokeFront.appendChild(pokeId)
-  
-  
   pokeBack.appendChild(powers)
-  pokeBack.appendChild(height)
-  pokeBack.appendChild(weight)
-  pokeBack.appendChild(tipes)
-  
+
   pokeDiv.appendChild(pokeFront)
   pokeDiv.appendChild(pokeBack)
   pokeScene.appendChild(pokeDiv)
   
   mainArea.appendChild(pokeScene)
+
+  // adding mouseover card flip action
   
   pokeDiv.addEventListener("mouseover", function() {
   pokeDiv.classList.toggle("is-flipped");
@@ -105,3 +107,22 @@ document.querySelector("#search").addEventListener("click", () => {
     })
   }
   
+ function fillCardFront(pokeFront, data) {
+    // let pokeOrder = document.createElement('h5')
+    let pokeOrder = document.createElement('p')
+    pokeOrder.textContent = data.order
+    pokeFront.appendChild(pokeOrder)
+    let pokeHP = document.createElement('h5')
+    pokeHP.textContent = `${data.id} ${data.name[0].toUpperCase()} ${data.name.slice(1)}`
+    pokeFront.appendChild(pokeHP)
+ }
+
+ function fillCardBack(pokeBack, data) {
+   let pokeHP = document.createElement('h5')
+   pokeHP.textContent = `${data.id} ${data.name[0].toUpperCase()} ${data.name.slice(1)}`
+   pokeHP.textContent = data.stats[0].base_stat
+   pokeBack.appendChild(pokeHP) 
+  
+ }
+
+ 
