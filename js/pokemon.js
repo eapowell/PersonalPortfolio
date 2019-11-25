@@ -13,7 +13,7 @@ navBar.textContent = pageData.navbar
 
 // prompt window to input pokemon ID & create new card
 
-document.querySelector("#search").addEventListener("click", () => {
+document.querySelector("#addpokecard").addEventListener("click", () => {
     let pokeId = prompt("Provide the Pokemon ID of the Pokemon you want to add:")
     let pokeIdNum = parseInt(pokeId, 10)
     if (pokeIdNum > 807) {
@@ -57,6 +57,8 @@ document.querySelector("#search").addEventListener("click", () => {
       return `0${id}`
     } else return id
   }
+
+  home.addEventListener("click", () => {document.location.href="index.html"})
   
   let mainArea = document.querySelector("main")
   
@@ -99,13 +101,21 @@ document.querySelector("#search").addEventListener("click", () => {
 
   // adding mouseover card flip action
   
-  pokeDiv.addEventListener("mouseover", function() {
+  pokeDiv.addEventListener("click", function() {
   pokeDiv.classList.toggle("is-flipped");
   })
-  pokeDiv.addEventListener("mouseout", function() {
-    pokeDiv.classList.toggle("is-flipped");
-    })
   }
+
+  pokeDiv.onmouseover = function() {
+    this.setAttribute(
+      "style", 'border: 5px solid ##ffcb05; border-radius: 7px'
+    )
+   })
+
+   pokeDiv.onmouseleave = function() {
+    this.setAttribute("style", `border: none`);
+  };
+
   
  function fillCardFront(pokeFront, data) {
     // let pokeOrder = document.createElement('h5')
