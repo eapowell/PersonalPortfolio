@@ -1,3 +1,8 @@
+#navbar {
+  display: grid;
+  float: right;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -5,8 +10,7 @@ main {
     width: 100%;
     max-width: 1680px;
     margin: 0 auto;
-    margin-bottom: 6rem;
-    
+    margin-bottom: 6rem;   
 }
 
 img {
@@ -42,7 +46,6 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
     text-align: center;
   }
   header img {
@@ -60,7 +63,7 @@ img {
   backface-visibility: hidden;
   }
 
-  #addpokecard {
+  #search {
     background: #ffcb05;
     height: 260px;
     width: 200px;
@@ -133,8 +136,6 @@ img {
     text-align: center;
   }
 
-
-
   /* Card flip action */
 
   body { font-family: sans-serif; }
@@ -160,11 +161,12 @@ img {
 }
 
 .card__face {
+  font-family: Arial, Helvetica, sans-serif;
   position: absolute;
   width: 100%;
   height: 100%;
   line-height: 0px;
-  color: black;
+  color: white;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
@@ -184,7 +186,6 @@ img {
   transform: rotateY(180deg);
 }
 
-
 button {
   width: 150px;
   height: 80px;
@@ -196,3 +197,6 @@ button {
 
 }
 
+.picDivs {
+  padding: 20px;
+}
