@@ -157,7 +157,7 @@ const capitalize = s => {
 
   
 
- //separate function to fill card back
+ // function to fill card back
 
  function fillCardBack(pokeBack, data) {
   pokeBack.setAttribute("class", "card__face card__face--back")
@@ -173,7 +173,7 @@ const capitalize = s => {
     let pokeAb = document.createElement("p")
     let pokeAbilities = document.createElement("ul")
   
-    //targeted types using map and then joined with a comma
+    //grabbe types using map
   
     pokeOrder.textContent = `type: ${data.types
       .map(t => t.type.name)
